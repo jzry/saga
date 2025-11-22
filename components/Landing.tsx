@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Code2, Shield, Zap } from 'lucide-react';
 import Navbar from './Navbar';
+import Hero from './Hero';
 
 export default function Landing() {
   return (
@@ -9,27 +10,7 @@ export default function Landing() {
       <Navbar />
 
       {/* Hero Section */}
-      <section className="max-w-7xl mx-auto px-[100px] py-20 md:py-32">
-        <div className="max-w-4xl">
-          <h1 className="text-5xl text-gray-800 md:text-7xl font-bold tracking-tight mb-6 leading-tight font-sans">
-            Move, store, or lend money
-            <br></br>
-          </h1>
-          <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-2xl leading-relaxed">
-            Build financial products with modern banking infrastructure. 
-            Fast integration, powerful features, and exceptional support.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <button className="cursor-pointer bg-black text-white px-6 py-3 rounded-md text-base hover:bg-gray-800 transition flex items-center justify-center">
-              Start building
-              <ArrowRight className="ml-2 w-5 h-5" />
-            </button>
-            <button className="cursor-pointer border border-gray-300 text-gray-900 px-6 py-3 rounded-md text-base hover:border-gray-400 transition">
-              View documentation
-            </button>
-          </div>
-        </div>
-      </section>
+      <Hero />
 
       {/* Feature Cards */}
       <section className="max-w-7xl mx-auto px-6 py-16">
@@ -96,7 +77,7 @@ export default function Landing() {
       {/* Trust Section */}
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="text-center mb-12">
-          <h2 className="text-gray-700 text-3xl md:text-4xl font-semibold mb-4">
+          <h2 className="text-gray-800 text-4xl md:text-4xl font-semibold mb-4">
             Trusted by forward-thinking companies
           </h2>
           <p className="text-lg text-gray-600">
@@ -145,8 +126,8 @@ export default function Landing() {
       </section>
 
       {/* Footer */}
-      <footer className="border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-6 py-12">
+      <footer>
+        <div className="max-w-5xl mx-auto px-6 py-12">
           <div className="grid md:grid-cols-4 gap-8 text-gray-800">
             <div>
               <div className="font-semibold mb-4 text-gray-800">Product</div>

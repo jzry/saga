@@ -16,7 +16,7 @@ export default function Navbar() {
           {/* Left section with logo and nav links */}
           <div className="flex items-center space-x-4 text-gray-600">
             {/* Logo */}
-            <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-gray-900 font-mono">
+            <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-gray-400 duration-300 font-mono">
               saga
             </Link>
 
@@ -53,7 +53,7 @@ export default function Navbar() {
               >
                 <button
                   type="button"
-                  className="text-gray-600 my-4 rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
+                  className="cursor-pointer text-gray-600 my-4 rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
                 >
                   Solutions
                 </button>
@@ -76,7 +76,7 @@ export default function Navbar() {
               >
                 <button
                   type="button"
-                  className="text-gray-600 my-4 rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
+                  className="cursor-pointer text-gray-600 my-4 rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
                 >
                   Developers
                 </button>
@@ -176,7 +176,7 @@ export default function Navbar() {
             
             <button 
               onClick={() => setSolutionsOpen(!solutionsOpen)}
-              className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+              className="cursor-pointer block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800"
             >
               Solutions
             </button>
