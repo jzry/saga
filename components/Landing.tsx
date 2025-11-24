@@ -1,5 +1,8 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Code2, Shield, Zap } from 'lucide-react';
+import CreditCard from './CreditCardLogo';
+import WalletLogo from './WalletLogo';
+import ACHLogo from './ACHLogo';
 import Navbar from './Navbar';
 import Hero from './Hero';
 
@@ -16,8 +19,8 @@ export default function Landing() {
       <section className="max-w-7xl mx-auto px-6 py-16">
         <div className="grid md:grid-cols-3 gap-8">
           <div className="border border-gray-200 rounded-lg p-8 shadow-sm hover:shadow-2xl duration-300">
-            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-              <Zap className="w-6 h-6" />
+            <div className="w-12 h-12 bg-[#a1e8ae] rounded-lg flex items-center justify-center mb-4">
+              <CreditCard className="w-6 h-6" strokeColor="#000000ff" />
             </div>
             <h3 className="text-gray-700 text-xl font-semibold mb-3">ACH Payments</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -26,8 +29,8 @@ export default function Landing() {
           </div>
           
           <div className="border border-gray-200 rounded-lg p-8 shadow-sm hover:shadow-2xl duration-300">
-            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-              <Shield className="w-6 h-6" />
+            <div className="w-12 h-12 bg-[#a1e8ae] rounded-lg flex items-center justify-center mb-4">
+              <ACHLogo className="w-6 h-6" strokeColor="#000000ff" />
             </div>
             <h3 className="text-gray-700 text-xl font-semibold mb-3">Wire Transfers</h3>
             <p className="text-gray-600 leading-relaxed">
@@ -36,8 +39,8 @@ export default function Landing() {
           </div>
           
           <div className="border border-gray-200 rounded-lg p-8 shadow-sm hover:shadow-2xl duration-300">
-            <div className="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
-              <Code2 className="w-6 h-6" />
+            <div className="w-12 h-12 bg-[#a1e8ae] rounded-lg flex items-center justify-center mb-4">
+              <WalletLogo className="w-6 h-6" strokeColor="#000000ff" />
             </div>
             <h3 className="text-gray-700 text-xl font-semibold mb-3">Check Deposits</h3>
             <p className="text-gray-600 leading-relaxed">

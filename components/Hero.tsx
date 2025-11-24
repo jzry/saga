@@ -15,7 +15,7 @@ return (
         {/* Content */}
         <section className="relative z-10 max-w-screen-xl mx-auto px-6 md:px-[100px] pt-30 pb-10 md:py-32 lg:py-40">
         <div className="max-w-4xl">
-        <h1 className="text-5xl text-gray-800 md:text-7xl font-bold tracking-tight mb-6 leading-tight font-sans">
+        <h1 className="text-5xl text-gray-900 md:text-7xl font-bold tracking-tight mb-6 leading-tight font-sans">
                     Move, store, or lend money
         <br></br>
         </h1>

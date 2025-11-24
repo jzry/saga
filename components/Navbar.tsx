@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 
 export default function Navbar() {
@@ -8,13 +8,25 @@ export default function Navbar() {
   const [productsOpen, setProductsOpen] = useState(false);
   const [solutionsOpen, setSolutionsOpen] = useState(false);
   const [developersOpen, setDevelopersOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 z-50 w-full bg-white transition-all duration-150 ease-in-out md:border-b md:border-[rgba(0,0,0,0.05)] print:hidden">
+    <nav className={`fixed top-0 z-50 w-full transition-all duration-300 ease-in-out print:hidden ${
+      isScrolled ? 'bg-white md:border-b md:border-[rgba(0,0,0,0.05)]' : 'bg-transparent'
+    }`}>
       <div className="w-full max-w-screen-xl xl:mx-auto px-6 md:px-10">
         <div className="relative flex h-16 items-center justify-between">
           {/* Left section with logo and nav links */}
-          <div className="flex items-center space-x-4 text-gray-600">
+          <div className="flex h-16 items-center space-x-4 text-gray-600">
             {/* Logo */}
             <Link href="/" className="text-2xl font-bold text-gray-800 hover:text-gray-400 duration-300 font-mono">
               saga
@@ -30,7 +42,7 @@ export default function Navbar() {
               >
                 <button
                   type="button"
-                  className="cursor-pointer text-gray-600 my-4 rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
+                  className="cursor-pointer text-gray-800 py-2 rounded-md border-none px-2 text-sm font-semibold no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
                 >
                   Products
                 </button>
@@ -53,7 +65,7 @@ export default function Navbar() {
               >
                 <button
                   type="button"
-                  className="cursor-pointer text-gray-600 my-4 rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
+                  className="cursor-pointer text-gray-800 py-2 rounded-md border-none px-2 text-sm font-semibold no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
                 >
                   Solutions
                 </button>
@@ -76,7 +88,7 @@ export default function Navbar() {
               >
                 <button
                   type="button"
-                  className="cursor-pointer text-gray-600 my-4 rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
+                  className="cursor-pointer text-gray-800 py-2 rounded-md border-none px-2 text-sm font-semibold no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2"
                 >
                   Developers
                 </button>
@@ -92,13 +104,13 @@ export default function Navbar() {
               </div>
 
               <Link href="/pricing">
-                <div className="my-3 cursor-pointer rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2">
+                <div className="cursor-pointer text-gray-800 py-2 rounded-md border-none px-2 text-sm font-semibold no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2">
                   Pricing
                 </div>
               </Link>
 
               <Link href="/updates">
-                <div className="my-3 cursor-pointer rounded-md border-none px-2 py-1 text-sm font-medium no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2">
+                <div className="cursor-pointer text-gray-800 py-2 rounded-md border-none px-2 text-sm font-semibold no-underline transition-all hover:bg-gray-100 hover:text-gray-800 lg:mx-2">
                   Updates
                 </div>
               </Link>
@@ -137,7 +149,7 @@ export default function Navbar() {
               <Link href="/login">
                 <button
                   type="button"
-                  className="group hidden shrink-0 cursor-pointer items-center justify-center space-x-2 rounded-md px-[7px] py-[5px] text-sm font-medium text-gray-600 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-800 focus:outline-hidden focus:ring-2 focus:ring-green-200 focus:ring-offset-2 sm:px-[10px] lg:flex"
+                  className="group hidden shrink-0 cursor-pointer items-center justify-center space-x-2 rounded-md px-[7px] py-[5px] text-sm font-semibold text-gray-800 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-800 focus:outline-hidden focus:ring-2 focus:ring-green-200 focus:ring-offset-2 sm:px-[10px] lg:flex"
                 >
                   <div>Sign in</div>
                 </button>
@@ -146,7 +158,7 @@ export default function Navbar() {
               <Link href="/signup">
                 <button
                   type="button"
-                  className="group flex shrink-0 cursor-pointer items-center justify-center space-x-2 rounded-md bg-gray-800 px-[7px] py-[5px] text-sm font-medium text-white transition duration-150 ease-in-out hover:bg-gray-900 focus:outline-hidden focus:ring-2 focus:ring-green-200 focus:ring-offset-2 sm:px-[10px]"
+                  className="group hidden shrink-0 cursor-pointer items-center justify-center space-x-2 rounded-md px-[7px] py-[5px] text-sm font-semibold text-white transition duration-150 ease-in-out bg-gray-800 hover:bg-gray-800 hover:text-gray-500 focus:outline-hidden focus:ring-2 focus:ring-green-200 focus:ring-offset-2 sm:px-[10px] lg:flex"
                 >
                   <div>Sign up</div>
                 </button>
@@ -162,12 +174,12 @@ export default function Navbar() {
           <div className="space-y-1 px-6 pb-3 pt-2">
             <button 
               onClick={() => setProductsOpen(!productsOpen)}
-              className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+              className="block w-full text-left rounded-md px-3 py-2 text-base font-semibold text-gray-800 hover:bg-gray-100 hover:text-gray-800"
             >
               Products
             </button>
             {productsOpen && (
-              <div className="pl-4 space-y-1">
+              <div className="pl-4 space-y-1 font-semibold">
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Product 1</a>
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Product 2</a>
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Product 3</a>
@@ -176,12 +188,12 @@ export default function Navbar() {
             
             <button 
               onClick={() => setSolutionsOpen(!solutionsOpen)}
-              className="cursor-pointer block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+              className="cursor-pointer block w-full text-left rounded-md px-3 py-2 text-base font-semibold text-gray-800 hover:bg-gray-100 hover:text-gray-800"
             >
               Solutions
             </button>
             {solutionsOpen && (
-              <div className="pl-4 space-y-1">
+              <div className="pl-4 space-y-1 font-semibold">
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Solution 1</a>
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Solution 2</a>
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Solution 3</a>
@@ -190,32 +202,32 @@ export default function Navbar() {
             
             <button 
               onClick={() => setDevelopersOpen(!developersOpen)}
-              className="block w-full text-left rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800"
+              className="block w-full text-left rounded-md px-3 py-2 text-base font-semibold text-gray-800 hover:bg-gray-100 hover:text-gray-800"
             >
               Developers
             </button>
             {developersOpen && (
-              <div className="pl-4 space-y-1">
+              <div className="pl-4 space-y-1 font-semibold">
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Documentation</a>
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">API Reference</a>
                 <a href="#" className="block rounded-md px-3 py-2 text-sm text-gray-600 hover:bg-gray-100">Guides</a>
               </div>
             )}
             
-            <a href="/fees" className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800">
+            <a href="/fees" className="block rounded-md px-3 py-2 text-base font-semibold text-gray-800 hover:bg-gray-100 hover:text-gray-800">
               Pricing
             </a>
-            <a href="/updates" className="block rounded-md px-3 py-2 text-base font-medium text-gray-600 hover:bg-gray-100 hover:text-gray-800">
+            <a href="/updates" className="block rounded-md px-3 py-2 text-base font-semibold text-gray-800 hover:bg-gray-100 hover:text-gray-800">
               Updates
             </a>
             <div className="flex flex-col space-y-2 pt-4">
               <Link href="/login">
-                <button className="w-full rounded-md px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-100">
+                <button className="cursor-pointer w-full rounded-md px-3 py-2 text-sm font-semibold text-gray-800 hover:bg-gray-100">
                   Sign in
                 </button>
               </Link>
               <Link href="/signup">
-                <button className="w-full rounded-md bg-gray-800 px-3 py-2 text-sm font-medium text-white hover:bg-gray-900">
+                <button className="cursor-pointer w-full rounded-md bg-gray-800 px-3 py-2 text-sm font-semibold text-white hover:bg-gray-900">
                   Sign up
                 </button>
               </Link>
